@@ -41,11 +41,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rack-cors', :require => 'rack/cors'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # OTHER GEMS 
   gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end

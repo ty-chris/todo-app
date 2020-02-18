@@ -138,7 +138,7 @@ class TodosContainer extends Component {
       });
     } else {
       // If the search bar is empty, set newList to original task list
-      newList = this.state.todos;
+      newList = this.state.currentTabTodos;
     }
     // Set the filtered state based on what our rules added to newList
     this.setState({
