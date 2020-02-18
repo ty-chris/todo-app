@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  database: db/demo_test_production
+  database: todo-app_production
   pool: 5
   timeout: 5000
