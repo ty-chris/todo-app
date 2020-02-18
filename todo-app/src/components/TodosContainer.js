@@ -49,10 +49,11 @@ class TodosContainer extends Component {
     if (e.key === 'Enter') {
       axios.post('/api/v1/todos', { todo: { title: e.target.value, category: this.state.checkboxValue } })
         .then(response => {
-          const todos = update(this.state.todos, {
+          
+          const filtered = update(this.state.filtered, {
             $splice: [[0, 0, response.data]]
           })
-          const filtered = update(this.state.currentTabTodos, {
+          const todos = update(this.state.todos, {
             $splice: [[0, 0, response.data]]
           })
           this.setState({
@@ -89,13 +90,12 @@ class TodosContainer extends Component {
     axios.delete(`/api/v1/todos/${id}`)
       .then(response => {
         const todoIndex = this.state.todos.findIndex(x => x.id === id)
-        const filteredIndex = this.state.currentTabTodos.findIndex(x => x.id === id)
-
+        const filteredIndex = this.state.filtered.findIndex(x => x.id === id)
 
         const todos = update(this.state.todos, {
           $splice: [[todoIndex, 1]]
         })
-        const filtered = update(this.state.currentTabTodos, {
+        const filtered = update(this.state.filtered, {
           $splice: [[filteredIndex, 1]]
         })
         this.setState({
