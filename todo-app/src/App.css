@@ -88,7 +88,7 @@ input[placeholder] {
 
 .inputContainer .taskInput {
 	padding: 5px;
-	width: 105%;
+	width: 100%;
 	border-radius: 5px;
 	box-sizing: border-box;
 }
